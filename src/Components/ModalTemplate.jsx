@@ -2,32 +2,35 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-export function ModalTemplate() {
-  const [show, setShow] = useState(false);
+export function ModalTemplate(props) {
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+    console.log('props', props.data.autor)
 
-  return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
+    const [show, setShow] = useState(false);
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>!!!!!!!!!! *******   Pode sair daqui   *******    !!!!!!!!!!!!!!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-  );
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+        <>
+            <Button variant="primary" onClick={handleShow}>
+                Launch demo modal
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{drops.data.autor}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{drops.data.nome}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
 }
